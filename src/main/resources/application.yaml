@@ -1,7 +1,21 @@
 server:
-  port: 8080
+  port: ${APP_PORT:8080}
   shutdown: graceful
 
 spring:
   application:
     name: sb-jwt-auth-sidecar-istio
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ${ACTUATOR_ENDPOINTS:health}
+  endpoint:
+    health:
+      show-details: ${ACTUATOR_SHOW_DETAILS:always}
+
+
+jwt:
+  jwk-set-uri: ${JWK_SET_URI:http://localhost:38080/realms/dev/protocol/openid-connect/certs}
+  verify: ${JWT_VERIFY:true}
