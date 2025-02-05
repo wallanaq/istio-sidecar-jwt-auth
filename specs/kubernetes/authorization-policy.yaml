@@ -1,0 +1,19 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: userinfo-api-authz-policy
+  namespace: app-dev
+spec:
+  selector:
+    matchLabels:
+      app: userinfo-api
+  rules:
+    - to:
+        - operation:
+            paths: [ "/actuator/health" ]
+    - to:
+        - operation:
+            notPaths: [ "/actuator/health" ]
+      when:
+        - key: request.auth.principal
+          values: ["*"]

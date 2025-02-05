@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userinfo-api
+  namespace: app-dev
+  labels:
+    app: userinfo-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: userinfo-api
+  template:
+    metadata:
+      labels:
+        app: userinfo-api
+    spec:
+      containers:
+        - name: userinfo-api
+          image: userinfo-api:0.0.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+          env:
+            - name: JWK_SET_URI
+              value: "http://keycloak-internal.sso-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/certs"
+            - name: JWT_VERIFY
+              value: "false"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: userinfo-api-service
+  namespace: app-dev
+spec:
+  selector:
+    app: userinfo-api
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
