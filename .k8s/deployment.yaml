@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: userinfo-api
-          image: userinfo-api:0.0.1
+          image: wallanaq/userinfo-api:0.0.1
           imagePullPolicy: Never
           ports:
             - containerPort: 8080

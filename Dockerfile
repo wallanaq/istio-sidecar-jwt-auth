@@ -2,7 +2,7 @@ FROM eclipse-temurin:21-jre-alpine AS builder
 
 WORKDIR /tmp
 
-COPY target/sb-jwt-auth-sidecar-istio-0.0.2-SNAPSHOT.jar app.jar
+COPY target/sb-jwt-auth-sidecar-istio-0.0.1-SNAPSHOT.jar app.jar
 
 RUN java -Djarmode=tools -jar app.jar extract --layers --destination extracted
 

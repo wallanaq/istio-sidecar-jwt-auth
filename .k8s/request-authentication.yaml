@@ -8,6 +8,6 @@ spec:
     matchLabels:
       app: userinfo-api
   jwtRules:
-    - issuer: "http://keycloak-internal.sso-dev.svc.cluster.local/realms/dev"
+    - issuer: "http://keycloak-internal.sso-dev.svc.cluster.local:8080/realms/dev"
       jwksUri: "http://keycloak-internal.sso-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/certs"
       forwardOriginalToken: true

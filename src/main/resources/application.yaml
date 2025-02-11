@@ -17,5 +17,5 @@ management:
 
 
 jwt:
-  jwk-set-uri: ${JWK_SET_URI:http://localhost:38080/realms/dev/protocol/openid-connect/certs}
+  jwk-set-uri: ${JWK_SET_URI:http://minikube-cluster:31177/realms/dev/protocol/openid-connect/certs}
   verify: ${JWT_VERIFY:true}
