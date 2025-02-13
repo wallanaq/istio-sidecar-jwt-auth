@@ -71,7 +71,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://{{host}}:{{keycloakPort}}/realms/dev/protocol/openid-connect/token",
+					"raw": "http://{{host}}:{{keycloakPort}}/realms/{{realm}}/protocol/openid-connect/token",
 					"protocol": "http",
 					"host": [
 						"{{host}}"
@@ -79,7 +79,7 @@
 					"port": "{{keycloakPort}}",
 					"path": [
 						"realms",
-						"dev",
+						"{{realm}}",
 						"protocol",
 						"openid-connect",
 						"token"
@@ -140,7 +140,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://{{host}}:{{keycloakPort}}/realms/dev/protocol/openid-connect/token",
+					"raw": "http://{{host}}:{{keycloakPort}}/realms/{{realm}}/protocol/openid-connect/token",
 					"protocol": "http",
 					"host": [
 						"{{host}}"
@@ -148,7 +148,7 @@
 					"port": "{{keycloakPort}}",
 					"path": [
 						"realms",
-						"dev",
+						"{{realm}}",
 						"protocol",
 						"openid-connect",
 						"token"
@@ -191,23 +191,28 @@
 		"type": "oauth2",
 		"oauth2": [
 			{
-				"key": "authUrl",
-				"value": "http://localhost:31177/realms/dev/protocol/openid-connect/auth",
+				"key": "clientSecret",
+				"value": "{{clientSecret}}",
 				"type": "string"
 			},
 			{
 				"key": "accessTokenUrl",
-				"value": "http://localhost:31177/realms/dev/protocol/openid-connect/token",
+				"value": "http://{{host}}:{{keycloakPort}}/realms/{{realm}}/protocol/openid-connect/token",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "http://{{host}}:{{keycloakPort}}/realms/{{realm}}/protocol/openid-connect/auth",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{clientId}}",
 				"type": "string"
 			},
 			{
 				"key": "scope",
 				"value": "openid",
-				"type": "string"
-			},
-			{
-				"key": "clientId",
-				"value": "postman",
 				"type": "string"
 			},
 			{
@@ -251,17 +256,18 @@
 	],
 	"variable": [
 		{
-			"key": "accessToken",
-			"value": ""
+			"key": "host",
+			"value": "192.168.59.107",
+			"type": "string"
 		},
 		{
 			"key": "keycloakPort",
-			"value": "32582",
+			"value": "31673",
 			"type": "string"
 		},
 		{
 			"key": "appPort",
-			"value": "30465",
+			"value": "31486",
 			"type": "string"
 		},
 		{
@@ -271,8 +277,17 @@
 		},
 		{
 			"key": "clientSecret",
-			"value": "s1YotZSH4Y9RqW5KD0YPxWMyiB2uqp11",
+			"value": "vQMtj64y0PDuoH77yeh4f8JmjQvdraon",
 			"type": "string"
+		},
+		{
+			"key": "realm",
+			"value": "dev",
+			"type": "string"
+		},
+		{
+			"key": "accessToken",
+			"value": ""
 		}
 	]
 }
