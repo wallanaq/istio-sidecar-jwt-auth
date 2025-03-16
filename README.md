@@ -1,4 +1,4 @@
-# Spring Boot JWT Auth with Sidecar and Istio
+# Spring Boot JWT Auth with Sidecar Pattern and Istio
 
 This project demonstrates how to deploy a **Spring Boot application** with **JWT authentication** using **Istio as a sidecar** for security enforcement in a **Minikube environment**.
 
@@ -10,7 +10,6 @@ This project demonstrates how to deploy a **Spring Boot application** with **JWT
 
 - To start Minikube with the **VirtualBox driver**, allocate **8GB of RAM and 4 CPUs**:
 ```bash
-minikube delete --all
 minikube start --driver=virtualbox --memory=8192mb --cpus=4
 ```
 
@@ -20,10 +19,19 @@ minikube start --driver=virtualbox --memory=8192mb --cpus=4
 minikube addons enable ingress
 ```
 
-- Create `sso-dev` namespace
+- Create `keycloak-dev` namespace
 ```bash
-kubectl create namespace sso-dev
-kubectl apply -f .k8s/sso.yaml -n sso-dev
+kubectl create namespace keycloak-dev
+```
+
+- Create `secret` with keycloak admin password
+```bash
+kubectl create secret generic keycloak-admin-secret -n keycloak-dev --from-literal=admin-password='admin'
+```
+
+- Install Keycloak with **helm**
+```bash
+helm install keycloak bitnami/keycloak -f .helm/keycloak-values.yaml -n keycloak-dev
 ```
 
 ### 3️⃣ Create Namespace and Set Context
@@ -95,14 +103,14 @@ kubectl run -it --rm curlpod --image=curlimages/curl -- sh
 ```
 
 ```bash
-curl --location 'http://keycloak-internal.sso-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/token' \
+curl --location 'http://keycloak-internal.keycloak-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=postman' \
 --data-urlencode 'client_secret=MV2CNZUi2WIuCjLWB1lMiplc3j9Ekizf'
 ```
 ```bash
-curl --location 'http://keycloak-internal.sso-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/token' \
+curl --location 'http://keycloak-internal.keycloak-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=password' \
 --data-urlencode 'client_id=postman' \

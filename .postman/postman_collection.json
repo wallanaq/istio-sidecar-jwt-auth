@@ -256,13 +256,8 @@
 	],
 	"variable": [
 		{
-			"key": "host",
-			"value": "192.168.59.107",
-			"type": "string"
-		},
-		{
 			"key": "keycloakPort",
-			"value": "31673",
+			"value": "30080",
 			"type": "string"
 		},
 		{

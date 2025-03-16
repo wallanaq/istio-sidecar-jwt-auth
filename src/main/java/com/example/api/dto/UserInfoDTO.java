@@ -14,7 +14,7 @@ public record UserInfoDTO(
       jwt.getClaimAsString("preferred_username"),
       jwt.getClaimAsString("email"),
       jwt.getClaimAsString("given_name"),
-      jwt.getClaimAsString("last_name"));
+      jwt.getClaimAsString("family_name"));
   }
 
 }
