@@ -50,8 +50,7 @@ mvn clean package -DskipTests
 
 - **Build the Docker Image**
 ```bash
-docker build -t wallanaq/userinfo-api:0.0.1 .
-docker images | grep userinfo-app
+mvn clean spring-boot:build-image
 ```
 
 - **Load the Image**
