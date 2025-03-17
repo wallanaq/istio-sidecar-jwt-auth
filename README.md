@@ -102,18 +102,18 @@ kubectl run -it --rm curlpod --image=curlimages/curl -- sh
 ```
 
 ```bash
-curl --location 'http://keycloak-internal.keycloak-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/token' \
+curl --location 'http://keycloak.keycloak-dev.svc.cluster.local/realms/dev/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=client_credentials' \
 --data-urlencode 'client_id=postman' \
---data-urlencode 'client_secret=MV2CNZUi2WIuCjLWB1lMiplc3j9Ekizf'
+--data-urlencode 'client_secret=8EIiaznVYRvlsGRYhYumU3p3ZoGYR0Pp'
 ```
 ```bash
-curl --location 'http://keycloak-internal.keycloak-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/token' \
+curl --location 'http://keycloak.keycloak-dev.svc.cluster.local/realms/dev/protocol/openid-connect/token' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=password' \
 --data-urlencode 'client_id=postman' \
---data-urlencode 'client_secret=MV2CNZUi2WIuCjLWB1lMiplc3j9Ekizf' \
+--data-urlencode 'client_secret=8EIiaznVYRvlsGRYhYumU3p3ZoGYR0Pp' \
 --data-urlencode 'username=john.doe' \
 --data-urlencode 'password=S3cr3t123'
 ```

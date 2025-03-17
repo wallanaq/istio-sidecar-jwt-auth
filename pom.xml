@@ -12,7 +12,7 @@
 
 	<groupId>com.example</groupId>
 	<artifactId>sb-jwt-auth-sidecar-istio</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>sb-jwt-auth-sidecar-istio</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -62,11 +62,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <image>
-            <name>${image.name}:${project.version}</name>
-          </image>
-        </configuration>
 			</plugin>
 		</plugins>
 	</build>

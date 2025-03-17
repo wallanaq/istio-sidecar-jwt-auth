@@ -17,13 +17,13 @@ spec:
     spec:
       containers:
         - name: userinfo-api
-          image: wallanaq/userinfo-api:0.0.1
+          image: wallanaq/userinfo-api:1.0.0
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
           env:
             - name: JWK_SET_URI
-              value: "http://keycloak-internal.sso-dev.svc.cluster.local:8080/realms/dev/protocol/openid-connect/certs"
+              value: "http://keycloak.keycloak-dev.svc.cluster.local/realms/dev/protocol/openid-connect/certs"
             - name: JWT_VERIFY
               value: "false"
           resources:
