@@ -1,6 +1,6 @@
-package com.example.api.config;
+package com.example.config;
 
-import com.example.api.jwt.JwtSidecarDecoder;
+import com.example.jwt.JwtSidecarDecoder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.jwt.JwtDecoder;

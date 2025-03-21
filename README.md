@@ -1,4 +1,4 @@
-# Spring Boot JWT Auth with Sidecar Pattern and Istio
+# Istio Sidecar - JWT Authentication/Authorization
 
 This project demonstrates how to deploy a **Spring Boot application** with **JWT authentication** using **Istio as a sidecar** for security enforcement in a **Minikube environment**.
 

@@ -1,4 +1,4 @@
-package com.example.api.jwt;
+package com.example.jwt;
 
 import com.nimbusds.jwt.SignedJWT;
 import org.springframework.security.oauth2.jwt.Jwt;

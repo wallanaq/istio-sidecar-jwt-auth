@@ -4,7 +4,7 @@ server:
 
 spring:
   application:
-    name: sb-jwt-auth-sidecar-istio
+    name: istio-sidecar-jwt-auth
 
 management:
   endpoints:
@@ -14,7 +14,6 @@ management:
   endpoint:
     health:
       show-details: ${ACTUATOR_SHOW_DETAILS:always}
-
 
 jwt:
   jwk-set-uri: ${JWK_SET_URI:http://minikube:30080/realms/dev/protocol/openid-connect/certs}

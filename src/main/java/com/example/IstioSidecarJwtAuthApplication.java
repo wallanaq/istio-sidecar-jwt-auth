@@ -1,13 +1,13 @@
-package com.example.api;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SbJwtAuthSidecarIstioApplication {
+public class IstioSidecarJwtAuthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SbJwtAuthSidecarIstioApplication.class, args);
+		SpringApplication.run(IstioSidecarJwtAuthApplication.class, args);
 	}
 
 }
