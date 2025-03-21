@@ -1,23 +1,25 @@
 package com.example.config;
 
+import com.example.jwt.JwtProperties;
 import com.example.jwt.JwtSidecarDecoder;
-import org.springframework.beans.factory.annotation.Value;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class JwtConfig {
 
-  @Value("${jwt.jwk-set-uri}")
-  private String jwkSetUri;
-
-  @Value("${jwt.verify:true}")
-  private boolean verifyJwt;
+  private final JwtProperties properties;
 
   @Bean
   public JwtDecoder jwtDecoder() {
-    return verifyJwt ? NimbusJwtDecoder.withJwkSetUri(jwkSetUri).build() : new JwtSidecarDecoder();
+    if (properties.getValidation().isEnabled()) {
+      return NimbusJwtDecoder.withJwkSetUri(properties.getJwkSetUri()).build();
+    } else {
+      return new JwtSidecarDecoder();
+    }
   }
 }

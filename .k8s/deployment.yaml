@@ -24,14 +24,14 @@ spec:
           env:
             - name: JWK_SET_URI
               value: "http://keycloak.keycloak-dev.svc.cluster.local/realms/dev/protocol/openid-connect/certs"
-            - name: JWT_VERIFY
+            - name: JWT_VALIDATION_ENABLED
               value: "false"
           resources:
             requests:
               cpu: "100m"
-              memory: "256Mi"
+              memory: "128Mi"
             limits:
-              cpu: "500m"
+              cpu: "300m"
               memory: "512Mi"
 ---
 apiVersion: v1

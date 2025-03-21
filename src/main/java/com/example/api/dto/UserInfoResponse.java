@@ -11,8 +11,8 @@ public record UserInfoResponse(
   String email,
   @JsonProperty("given_name")
   String givenName,
-  @JsonProperty("last_name")
-  String lastName
+  @JsonProperty("family_name")
+  String familyName
 ) {
 
   public static UserInfoResponse from(Jwt jwt) {
