@@ -1,6 +1,5 @@
-package com.example.validator;
+package com.example.jwt;
 
-import com.example.jwt.JwtProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;

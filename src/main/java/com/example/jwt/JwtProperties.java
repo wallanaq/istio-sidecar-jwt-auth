@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "jwt")
 public class JwtProperties {
 
+  private String issuerUri;
   private String jwkSetUri;
   private final JwtValidation validation = new JwtValidation();
 

@@ -1,7 +1,6 @@
-package com.example.config;
+package com.example.jwt;
 
-import com.example.jwt.JwtProperties;
-import com.example.jwt.JwtSidecarDecoder;
+import com.example.jwt.decoder.SimpleJwtDecoder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -19,7 +18,7 @@ public class JwtConfig {
     if (properties.getValidation().isEnabled()) {
       return NimbusJwtDecoder.withJwkSetUri(properties.getJwkSetUri()).build();
     } else {
-      return new JwtSidecarDecoder();
+      return new SimpleJwtDecoder();
     }
   }
 }

@@ -16,6 +16,7 @@ management:
       show-details: ${ACTUATOR_SHOW_DETAILS:always}
 
 jwt:
+  issuer-uri: ${ISSUER_URI:http://minikube:30080/realms/dev}
   jwk-set-uri: ${JWK_SET_URI:http://minikube:30080/realms/dev/protocol/openid-connect/certs}
   validation:
     enabled: ${JWT_VALIDATION_ENABLED:true}
